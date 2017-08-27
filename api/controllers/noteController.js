@@ -56,7 +56,7 @@ exports.delete_a_note = function(req, res) {
 };
 
 exports.list_favorites = function(req, res) {
-  Note.find({favorite: true}, function(err, note) {
+  Note.find({favorite: 1}, function(err, note) {
     if (err)
       res.send(err);
     res.json(note);
