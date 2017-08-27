@@ -31,11 +31,17 @@ exports.read_a_note = function(req, res) {
 };
 
 exports.favorite_a_note = function(req, res) {
-  Note.findOneAndUpdate({_id: req.params.noteId}, {$set: {favorite: true}}, {new: true}, function(err, note) {
-    if (err)
-      res.send(err);
-    res.json(note);
-  });
+  Note.findOneAndUpdate(
+    {_id: req.params.noteId},
+    {$bit:
+      {favorite:
+        {xor: 1}}},
+    {new: true},
+    function(err, note) {
+      if (err)
+        res.send(err);
+        res.json(note);
+      });
 };
 
 exports.delete_a_note = function(req, res) {

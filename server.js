@@ -3,7 +3,8 @@ var express = require('express'),
   port = process.env.PORT || 3000,
   mongoose = require('mongoose'),
   Note = require('./api/models/noteModel'),
-  bodyParser = require('body-parser');
+  bodyParser = require('body-parser'),
+  Int32 = require('mongoose-int32');
 
 // mongoose instance connection url connection
 mongoose.Promise = global.Promise;

@@ -1,5 +1,7 @@
 'use strict';
 var mongoose = require('mongoose');
+var NumberInt = require('mongoose-int32');
+
 var Schema = mongoose.Schema;
 
 var noteSchema = new Schema({
@@ -8,9 +10,8 @@ var noteSchema = new Schema({
     required: 'Required field'
   },
   favorite: {
-    type: Boolean,
-    default: false
-  }
+    type: NumberInt,
+    default: 0}
 });
 
 module.exports = mongoose.model('Notes', noteSchema);
