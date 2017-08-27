@@ -17,10 +17,12 @@ app.use(bodyParser.json());
 var routes = require('./api/routes/noteRoutes'); //importing route
 routes(app); //register the route
 
-app.listen(port);
+var server = app.listen(port);
 
 app.use(function(req, res) {
   res.status(404).send({url: req.originalUrl + ' not found'})
 });
+
+module.exports = server;
 
 console.log('API server started on: ' + port);

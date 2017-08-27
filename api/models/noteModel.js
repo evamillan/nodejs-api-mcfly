@@ -9,6 +9,10 @@ var noteSchema = new Schema({
     type: String,
     required: 'Required field'
   },
+  user: {
+    type: String,
+    required: 'Required field'
+  },
   favorite: {
     type: NumberInt,
     default: 0}

@@ -4,18 +4,22 @@
   "description": "Ejercicio técnico para Kubide",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha",
     "start": "nodemon server.js"
   },
   "author": "Eva Millán",
   "license": "ISC",
   "devDependencies": {
+    "mocha": "^3.5.0",
+    "chai-http": "^2.0.1",
     "nodemon": "^1.11.0"
   },
   "dependencies": {
     "body-parser": "^1.17.2",
+    "chai": "^4.1.1",
     "express": "^4.15.4",
     "mongoose": "4.7.2",
-    "mongoose-int32": "0.2.0"
+    "mongoose-int32": "0.2.0",
+    "sinon": "^3.2.1"
   }
 }

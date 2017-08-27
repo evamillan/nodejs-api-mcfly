@@ -13,7 +13,8 @@ exports.list_all_notes = function(req, res) {
 
 exports.create_a_note = function(req, res) {
   var new_note = new Note({
-    text: req.body.text
+    text: req.body.text,
+    user: req.body.user
   });
   new_note.save(function(err, note) {
     if (err)
@@ -54,8 +55,16 @@ exports.delete_a_note = function(req, res) {
   });
 };
 
-exports.find_favorites = function(req, res) {
+exports.list_favorites = function(req, res) {
   Note.find({favorite: true}, function(err, note) {
+    if (err)
+      res.send(err);
+    res.json(note);
+  });
+};
+
+exports.list_user_notes = function(req, res) {
+  Note.find({user: req.params.user}, function(err, note) {
     if (err)
       res.send(err);
     res.json(note);
