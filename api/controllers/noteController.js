@@ -30,8 +30,8 @@ exports.read_a_note = function(req, res) {
   });
 };
 
-exports.update_a_note = function(req, res) {
-  Note.findOneAndUpdate({_id: req.params.noteId}, req.body, {new: true}, function(err, note) {
+exports.favorite_a_note = function(req, res) {
+  Note.findOneAndUpdate({_id: req.params.noteId}, {$set: {favorite: true}}, {new: true}, function(err, note) {
     if (err)
       res.send(err);
     res.json(note);

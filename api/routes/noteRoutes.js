@@ -8,7 +8,7 @@ module.exports = function(app) {
 
   app.route('/notes/:noteId')
     .get(notes.read_a_note)
-    .put(notes.update_a_note)
+    .put(notes.favorite_a_note)
     .delete(notes.delete_a_note);
 
   app.route('/notes/list/favorited')
